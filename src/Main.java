@@ -19,6 +19,12 @@ public class Main {
 
         System.out.println(rv.reverseString("abcdefgh"));
 
+
+        StackImpl stack = new StackImpl();
+        stack.push(8);
+
+
+
     }
 
 
