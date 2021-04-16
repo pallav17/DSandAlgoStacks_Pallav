@@ -1,18 +1,45 @@
+import java.io.StringBufferInputStream;
+import java.util.Arrays;
+
 public class StackImpl {
 
-    int[] input = new int[5];
+    int[] Stack = new int[5];
 
-
-    public int[] push( int k )
+        int count;
+    public int[] push( int input )
     {
-        if(input.length > 0)
-        input[input.length+1] = k;
-
-        else
+        if(count == Stack.length)
         {
-            input[0] = k;
+            throw new StackOverflowError();
         }
 
-        return input;
+       Stack[count] = input;
+       count++;
+        return Stack;
+    }
+
+    public int pop()
+    {
+
+        if (count == 0)
+        {
+            throw new IllegalArgumentException();
+        }
+        count--;
+        Stack[count] = 0;
+
+        return Stack[count];
+
+
+    }
+
+    public int peek()
+    {
+        return Stack[count-1];
+    }
+    @Override
+    public String toString()
+    {
+        return Arrays.toString(Stack);
     }
 }
